@@ -5,7 +5,7 @@ import { CarComponent } from "./componets/car/car.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CarlistComponent, CarComponent],
+  imports: [RouterOutlet, CarlistComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
