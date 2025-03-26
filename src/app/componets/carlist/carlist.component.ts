@@ -15,6 +15,8 @@ import { CarComponent } from '../car/car.component';
 export class CarlistComponent {
   carsData: ICar | any
   show:boolean = false
+
+  
   constructor(private _carAPIService:CarApiService){}
   
   
@@ -34,7 +36,15 @@ export class CarlistComponent {
     this._carAPIService.addCarDetails(addCar).subscribe(carsData =>
       { this.carsData = carsData}
     );
-    this.getCars()
+    this.refreshCars()
     return false;
   }
+
+  refreshCars()
+  {
+    this.getCars();
+
+  }
+
+
 }

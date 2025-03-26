@@ -3,6 +3,7 @@ import { Input } from '@angular/core';
 import { CarApiService } from '../../service/car-api.service';
 import { ICar } from '../../interface/car';
 import { CommonModule } from '@angular/common';
+import { Output, EventEmitter } from '@angular/core';
 import { CarlistComponent } from "../carlist/carlist.component";
 
 
@@ -13,7 +14,8 @@ import { CarlistComponent } from "../carlist/carlist.component";
   styleUrl: './car.component.css'
 })
 export class CarComponent {
-  @Input() carData?: ICar |undefined ;
+  @Input() carData?: ICar;
+  @Output() carDeletedEvent = new EventEmitter<string>()
   carImageWidth:number = 300;
 
 
@@ -23,5 +25,7 @@ export class CarComponent {
       { 
         console.log(result);
       });
+
+      this.carDeletedEvent.emit("Car Got Deleted")
   }
 }
