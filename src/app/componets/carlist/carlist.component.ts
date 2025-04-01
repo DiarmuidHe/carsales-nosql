@@ -34,14 +34,18 @@ export class CarlistComponent {
     let addCar:ICar;
     addCar=new NewCar(make,model,year,imageUrl);
     this._carAPIService.addCarDetails(addCar).subscribe(carsData =>
-      { this.carsData = carsData}
-    );
-    this.refreshCars()
+      { this.carsData = carsData
+        this.getCars()
+    
+      }
+     );
+
     return false;
   }
 
   refreshCars()
   {
+    console.log("delete me...")
     this.getCars();
 
   }

@@ -24,8 +24,9 @@ export class CarComponent {
     this._carAPIService.delCarDetails(carId).subscribe(result =>
       { 
         console.log(result);
+        this.carDeletedEvent.emit("Car Got Deleted")
       });
 
-      this.carDeletedEvent.emit("Car Got Deleted")
+
   }
 }
